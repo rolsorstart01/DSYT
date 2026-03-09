@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Market Dashboard</h2>
+<div class="row">
+  <div class="col-md-7">
+    <table class="table table-striped">
+      <thead><tr><th>Symbol</th><th>Sector</th><th>Price</th><th>Trade</th></tr></thead>
+      <tbody>
+      {% for stock in stocks %}
+      <tr>
+        <td>{{ stock.symbol }}</td><td>{{ stock.sector }}</td><td>{{ stock.current_price }}</td>
+        <td>
+          <form method="post" class="d-flex gap-1">
+            <input type="hidden" name="stock_id" value="{{ stock.id }}">
+            <input type="number" min="1" name="quantity" value="1" class="form-control form-control-sm">
+            <button name="side" value="BUY" class="btn btn-success btn-sm">Buy</button>
+            <button name="side" value="SELL" class="btn btn-danger btn-sm">Sell</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-5">
+    <canvas id="stockChart"></canvas>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const labels = Object.keys({{ chart_data|tojson }});
+const values = Object.values({{ chart_data|tojson }}).map(arr => arr[arr.length - 1]);
+new Chart(document.getElementById('stockChart'), {
+  type: 'bar',
+  data: { labels, datasets: [{ label: 'Latest Price', data: values, backgroundColor: '{{ config.accent_color }}' }] }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Leaderboard</h2>
+<table class="table table-bordered">
+<thead><tr><th>Rank</th><th>User</th><th>Net Worth</th></tr></thead>
+<tbody>
+{% for row in board %}
+<tr><td>{{ loop.index }}</td><td>{{ row.username }}</td><td>{{ row.net_worth }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

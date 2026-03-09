@@ -1,0 +1,44 @@
+{
+  "project_name": "DSYT Market Simulator",
+  "school_name": "The Doon School",
+  "primary_color": "#0f4c81",
+  "accent_color": "#f39c12",
+  "starting_cash": 100000,
+  "market_tick_minutes": 5,
+  "volatility": 0.03,
+  "layout": {
+    "hero_title": "Doon School Young Traders",
+    "hero_subtitle": "Learn investing through a live simulated market driven by news."
+  },
+  "sectors": [
+    {
+      "name": "Technology",
+      "symbol": "TEC",
+      "base_price": 120
+    },
+    {
+      "name": "Energy",
+      "symbol": "ENG",
+      "base_price": 90
+    },
+    {
+      "name": "Finance",
+      "symbol": "FIN",
+      "base_price": 110
+    },
+    {
+      "name": "Healthcare",
+      "symbol": "HLT",
+      "base_price": 105
+    }
+  ],
+  "rules": {
+    "max_daily_trades": 15,
+    "broker_fee_percent": 0.2,
+    "allow_short_selling": false
+  },
+  "admin": {
+    "username": "admin",
+    "password": "admin123"
+  }
+}
