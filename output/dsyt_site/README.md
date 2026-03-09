@@ -1,0 +1,33 @@
+# DSYT Market Simulator
+
+Auto-generated full-stack trading website for **The Doon School**.
+
+## Features
+- Market dashboard with live prices and charts
+- Stock listings by sector
+- User registration/login with trading accounts
+- Buy/sell execution and portfolio tracking
+- Leaderboard ranked by net worth
+- Admin panel to publish news events that impact sectors
+- Config-driven branding, layout, and market rules
+
+## Quick Start
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python run.py
+```
+
+Open `http://localhost:5000`.
+
+## Configuration
+Edit `app_config.json` to modify:
+- colors and branding
+- starting cash and fees
+- volatility and market cadence
+- sectors and base prices
+
+## Admin credentials
+- username: `admin`
+- password: `admin123`
